@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Room Wall -->
+  <path android:fillColor="#FFF8E1" android:pathData="M0,0h200v115H0z"/>
+  <!-- Wooden Floor -->
+  <path android:fillColor="#D7CCC8" android:pathData="M0,115h200v35H0z"/>
+  <!-- Window with Daylight -->
+  <path android:fillColor="#B2EBF2" android:pathData="M120,20h60v50h-60z"/>
+  <path android:fillColor="#8D6E63" android:pathData="M118,18h64v4h-64zm0,52h64v4h-64zm30,-52h4v56h-4z"/>
+  <!-- Cozy Bed -->
+  <path android:fillColor="#795548" android:pathData="M10,80h80v35H10z"/>
+  <path android:fillColor="#ECEFF1" android:pathData="M15,75h70v15H15z"/>
+  <path android:fillColor="#5C6BC0" android:pathData="M25,85h65v30H25z"/>
+  <!-- Study Desk & Chair -->
+  <path android:fillColor="#5D4037" android:pathData="M110,90h65v5H110zm5,5h5v20h-5zm50,0h5v20h-5z"/>
+  <!-- Laptop on Desk -->
+  <path android:fillColor="#78909C" android:pathData="M130,82h20v8h-20z"/>
+  <path android:fillColor="#FFB300" android:pathData="M155,75a4,4 0 1,0 8,0a4,4 0 1,0 -8,0"/>
+</vector>

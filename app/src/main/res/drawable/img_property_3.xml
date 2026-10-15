@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Soft Mint Wall -->
+  <path android:fillColor="#E0F2F1" android:pathData="M0,0h200v115H0z"/>
+  <!-- Light Oak Floor -->
+  <path android:fillColor="#E0D7C6" android:pathData="M0,115h200v35H0z"/>
+  <!-- Wall Art Picture Frames -->
+  <path android:fillColor="#3E2723" android:pathData="M40,20h30v35H40zm40,10h25v25H80z"/>
+  <path android:fillColor="#80CBC4" android:pathData="M44,24h22v27H44zm40,10h17v17H84z"/>
+  <!-- Modern Sofa Couch -->
+  <path android:fillColor="#26A69A" android:pathData="M30,80h110v35H30z"/>
+  <path android:fillColor="#00796B" android:pathData="M25,75h120v12H25zm10,22h100v18H35z"/>
+  <!-- Cushions -->
+  <path android:fillColor="#FFB74D" android:pathData="M40,82h20v15H40zm75,0h20v15h-20z"/>
+  <!-- Coffee Table -->
+  <path android:fillColor="#4E342E" android:pathData="M150,95h35v5h-35zm5,5h5v15h-5zm20,0h5v15h-5z"/>
+  <path android:fillColor="#FFE0B2" android:pathData="M158,88a5,5 0 1,0 10,0a5,5 0 1,0 -10,0"/>
+</vector>

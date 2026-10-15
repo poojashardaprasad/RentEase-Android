@@ -1,0 +1,19 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Wall -->
+  <path android:fillColor="#F5F5F5" android:pathData="M0,0h200v115H0z"/>
+  <!-- Floor -->
+  <path android:fillColor="#D7CCC8" android:pathData="M0,115h200v35H0z"/>
+  <!-- Kitchen Counter -->
+  <path android:fillColor="#424242" android:pathData="M20,70h160v10H20z"/>
+  <path android:fillColor="#8D6E63" android:pathData="M20,80h160v35H20z"/>
+  <!-- Wall Cabinets -->
+  <path android:fillColor="#A1887F" android:pathData="M20,15h160v35H20z"/>
+  <!-- Fridge -->
+  <path android:fillColor="#B0BEC5" android:pathData="M150,30h35v85h-35z"/>
+  <!-- Pendant Lights -->
+  <path android:fillColor="#FFB300" android:pathData="M60,35a6,6 0 1,0 12,0a6,6 0 1,0 -12,0m50,0a6,6 0 1,0 12,0a6,6 0 1,0 -12,0"/>
+</vector>

@@ -1,0 +1,28 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Sky -->
+  <path android:fillColor="#E3F2FD" android:pathData="M0,0h200v150H0z"/>
+  <!-- Sun -->
+  <path android:fillColor="#FFF59D" android:pathData="M160,30m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0"/>
+  <!-- Ground & Lawn -->
+  <path android:fillColor="#81C784" android:pathData="M0,130h200v20H0z"/>
+  <!-- Main Building Body -->
+  <path android:fillColor="#37474F" android:pathData="M30,20h140v110H30z"/>
+  <!-- Roof Accent -->
+  <path android:fillColor="#1A237E" android:pathData="M25,15h150v5H25z"/>
+  <!-- Windows - Row 1 -->
+  <path android:fillColor="#FFF176" android:pathData="M45,30h25v20H45zm40,0h25v20H85zm40,0h25v20h-25z"/>
+  <!-- Glass Balconies - Row 2 -->
+  <path android:fillColor="#80DEEA" android:pathData="M45,65h25v25H45zm40,0h25v25H85zm40,0h25v25h-25z"/>
+  <path android:fillColor="#455A64" android:pathData="M40,85h35v5H40zm40,0h35v5H80zm40,0h35v5h-35z"/>
+  <!-- Windows - Row 3 -->
+  <path android:fillColor="#FFF176" android:pathData="M45,100h25v20H45zm40,0h25v20H85zm40,0h25v20h-25z"/>
+  <!-- Main Glass Entrance -->
+  <path android:fillColor="#BBDEFB" android:pathData="M85,110h30v20H85z"/>
+  <!-- Trees -->
+  <path android:fillColor="#2E7D32" android:pathData="M15,130m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0"/>
+  <path android:fillColor="#2E7D32" android:pathData="M185,130m-12,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0"/>
+</vector>

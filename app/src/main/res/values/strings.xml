@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">RentEase</string>
+    <string name="title_home">Home</string>
+    <string name="title_browse">Browse</string>
+    <string name="title_saved">Saved</string>
+    <string name="title_requests">Requests</string>
+    <string name="title_profile">Profile</string>
+
+    <string name="hero_title">Find a Place to Call Home</string>
+    <string name="hero_subtitle">Explore rental homes that fit your budget and lifestyle. Find welcoming spaces for students, working professionals, and families.</string>
+    <string name="btn_find_rental">Find a Rental</string>
+    <string name="featured_section_title">Homes Worth Coming Home To</string>
+    <string name="view_all_rentals">View All Rentals</string>
+
+    <string name="search_hint">Search locality, city, or property...</string>
+    <string name="filter_all">All</string>
+    <string name="filter_students">Students</string>
+    <string name="filter_families">Families</string>
+    <string name="filter_both">Both</string>
+
+    <string name="label_rent_range">Monthly Rent (₹)</string>
+    <string name="label_min_rent">Min Rent</string>
+    <string name="label_max_rent">Max Rent</string>
+    <string name="label_property_type">Property Type</string>
+    <string name="label_bedrooms">Bedrooms</string>
+    <string name="label_furnishing">Furnishing</string>
+    <string name="label_sort_by">Sort By</string>
+
+    <string name="sort_rent_low_high">Rent: Low to High</string>
+    <string name="sort_rent_high_low">Rent: High to Low</string>
+    <string name="btn_apply_filters">Apply Filters</string>
+    <string name="btn_clear_filters">Clear Filters</string>
+
+    <string name="empty_search_results">No rental properties match your search or filter criteria.</string>
+    <string name="empty_favorites">No saved properties yet. Tap the heart icon on any property to save it for later.</string>
+    <string name="empty_requests">No visit requests or inquiries submitted yet.</string>
+
+    <string name="btn_request_visit">Request a Visit</string>
+    <string name="btn_inquire">Inquire Now</string>
+    <string name="btn_cancel_request">Cancel Request</string>
+    <string name="btn_view_details">View Details</string>
+
+    <string name="request_visit_title">Schedule Property Visit</string>
+    <string name="inquiry_title">Send Property Inquiry</string>
+
+    <string name="label_name">Full Name</string>
+    <string name="label_phone">Phone Number</string>
+    <string name="label_email">Email Address</string>
+    <string name="label_visit_date">Visit Date</string>
+    <string name="label_visit_time">Visit Time</string>
+    <string name="label_message">Message / Notes</string>
+
+    <string name="status_pending">Pending</string>
+    <string name="status_cancelled">Cancelled</string>
+
+    <string name="profile_edit_title">Edit Profile</string>
+    <string name="btn_save_changes">Save Changes</string>
+    <string name="btn_reset_profile">Reset Profile</string>
+
+    <string name="my_saved_homes">Saved Properties</string>
+    <string name="my_visit_requests">Visit Requests</string>
+    <string name="my_inquiries">Inquiries</string>
+</resources>

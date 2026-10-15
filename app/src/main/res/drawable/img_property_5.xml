@@ -1,0 +1,22 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Sky -->
+  <path android:fillColor="#E1F5FE" android:pathData="M0,0h200v150H0z"/>
+  <!-- Pitched Roof -->
+  <path android:fillColor="#D84315" android:pathData="M15,50 L100,10 L185,50 Z"/>
+  <!-- House Body -->
+  <path android:fillColor="#FFF8E1" android:pathData="M25,50h150v75H25z"/>
+  <!-- Garage Door -->
+  <path android:fillColor="#78909C" android:pathData="M125,80h40v45h-40z"/>
+  <!-- Main Entrance Door -->
+  <path android:fillColor="#4E342E" android:pathData="M80,80h25v45H80z"/>
+  <!-- Windows -->
+  <path android:fillColor="#81D4FA" android:pathData="M35,65h30v25H35zm0,0h30v25H35z"/>
+  <!-- Lawn Garden -->
+  <path android:fillColor="#66BB6A" android:pathData="M0,125h200v25H0z"/>
+  <!-- Trees -->
+  <path android:fillColor="#388E3C" android:pathData="M10,125a12,12 0 1,0 24,0a12,12 0 1,0 -24,0m165,0a12,12 0 1,0 24,0a12,12 0 1,0 -24,0"/>
+</vector>

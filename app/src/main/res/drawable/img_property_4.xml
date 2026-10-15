@@ -1,0 +1,21 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Wall -->
+  <path android:fillColor="#E8EAF6" android:pathData="M0,0h200v115H0z"/>
+  <!-- Floor -->
+  <path android:fillColor="#C8E6C9" android:pathData="M0,115h200v35H0z"/>
+  <!-- Bed 1 Left -->
+  <path android:fillColor="#3F51B5" android:pathData="M15,75h65v40H15z"/>
+  <path android:fillColor="#FFFFFF" android:pathData="M20,70h55v10H20z"/>
+  <!-- Bed 2 Right -->
+  <path android:fillColor="#303F9F" android:pathData="M120,75h65v40h-65z"/>
+  <path android:fillColor="#FFFFFF" android:pathData="M125,70h55v10h-55z"/>
+  <!-- Shared Nightstand Table -->
+  <path android:fillColor="#5D4037" android:pathData="M88,85h24v30H88z"/>
+  <!-- Lamp on Table -->
+  <path android:fillColor="#FFC107" android:pathData="M95,70a5,5 0 1,0 10,0a5,5 0 1,0 -10,0"/>
+  <path android:fillColor="#795548" android:pathData="M99,75h2v10h-2z"/>
+</vector>

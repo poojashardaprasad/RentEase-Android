@@ -1,0 +1,19 @@
+<resources xmlns:tools="http://schemas.android.com/tools">
+    <!-- Night theme fallback maintaining readability -->
+    <style name="Base.Theme.MobileComp4b" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="colorPrimary">@color/primary_container</item>
+        <item name="colorOnPrimary">@color/cream_background</item>
+        <item name="colorPrimaryContainer">@color/primary_container</item>
+        <item name="colorOnPrimaryContainer">@color/cream_background</item>
+        <item name="colorSecondary">@color/secondary_green</item>
+        <item name="colorSecondaryContainer">@color/secondary_container</item>
+        <item name="colorOnSecondaryContainer">@color/on_secondary_container</item>
+        <item name="android:colorBackground">@color/cream_background</item>
+        <item name="colorSurface">@color/cream_background</item>
+        <item name="colorOnSurface">@color/text_primary</item>
+        <item name="colorOnSurfaceVariant">@color/text_secondary</item>
+        <item name="android:windowBackground">@color/cream_background</item>
+        <item name="android:statusBarColor">@color/cream_background</item>
+        <item name="android:windowLightStatusBar">true</item>
+    </style>
+</resources>

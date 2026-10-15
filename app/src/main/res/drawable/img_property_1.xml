@@ -1,0 +1,20 @@
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="200dp"
+    android:height="150dp"
+    android:viewportWidth="200"
+    android:viewportHeight="150">
+  <!-- Sky -->
+  <path android:fillColor="#E0F2F1" android:pathData="M0,0h200v150H0z"/>
+  <!-- Building Base -->
+  <path android:fillColor="#4E6448" android:pathData="M20,20h160v115H20z"/>
+  <!-- Brick Texture Accent Band -->
+  <path android:fillColor="#3A3028" android:pathData="M20,60h160v10H20z"/>
+  <!-- Windows -->
+  <path android:fillColor="#F7F3E8" android:pathData="M35,30h35v22H35zm45,0h35v22H80zm45,0h35v22h-35zm-90,50h35v22H35zm45,0h35v22H80zm45,0h35v22h-35z"/>
+  <!-- Balcony Overhangs -->
+  <path android:fillColor="#CDE7C3" android:pathData="M30,52h45v4H30zm45,0h45v4H75zm45,0h45v4h-45zm-90,50h45v4H30zm45,0h45v4H75zm45,0h45v4h-45z"/>
+  <!-- Potted Plants on Balconies -->
+  <path android:fillColor="#2E7D32" android:pathData="M35,100a4,4 0 1,0 8,0a4,4 0 1,0 -8,0m45,0a4,4 0 1,0 8,0a4,4 0 1,0 -8,0"/>
+  <!-- Ground -->
+  <path android:fillColor="#1A234F3D" android:pathData="M0,135h200v15H0z"/>
+</vector>
