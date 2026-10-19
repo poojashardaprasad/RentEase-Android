@@ -67,6 +67,16 @@ public class RequestsFragment extends Fragment {
                         .setNegativeButton("No", null)
                         .show();
             }
+
+            @Override
+            public void onAcceptRequest(int requestId) {
+                new AlertDialog.Builder(requireContext())
+                        .setTitle("Accept Visit Request")
+                        .setMessage("Do you want to accept this tenant's visit request?")
+                        .setPositiveButton("Accept Visit", (dialog, which) -> visitViewModel.acceptVisitRequest(requestId))
+                        .setNegativeButton("Cancel", null)
+                        .show();
+            }
         });
 
         inquiryAdapter = new InquiryAdapter(propertyId -> openPropertyDetails(propertyId));

@@ -1,5 +1,6 @@
 package com.example.mobilecomp4b.ui.profile;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.widget.ArrayAdapter;
 import android.widget.Toast;
@@ -9,12 +10,15 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 
 import com.example.mobilecomp4b.databinding.ActivityProfileBinding;
+import com.example.mobilecomp4b.ui.splash.RoleSelectionActivity;
+import com.example.mobilecomp4b.utils.UserSessionManager;
 import com.example.mobilecomp4b.viewmodel.ProfileViewModel;
 
 public class ProfileActivity extends AppCompatActivity {
 
     private ActivityProfileBinding binding;
     private ProfileViewModel viewModel;
+    private UserSessionManager sessionManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -22,15 +26,46 @@ public class ProfileActivity extends AppCompatActivity {
         binding = ActivityProfileBinding.inflate(getLayoutInflater());
         setContentView(binding.getRoot());
 
+        sessionManager = new UserSessionManager(this);
         viewModel = new ViewModelProvider(this).get(ProfileViewModel.class);
 
         binding.btnProfileBack.setOnClickListener(v -> finish());
 
         setupSpinner();
         observeViewModel();
+        setupRoleAndLogout();
 
         binding.btnSaveProfile.setOnClickListener(v -> saveProfile());
         binding.btnResetProfile.setOnClickListener(v -> confirmResetProfile());
+    }
+
+    private void setupRoleAndLogout() {
+        if (sessionManager.isOwner()) {
+            binding.tvCurrentRoleDisplay.setText("Current Mode: Property Owner / Renter");
+        } else {
+            binding.tvCurrentRoleDisplay.setText("Current Mode: Tenant / Rentee");
+        }
+
+        binding.btnLogout.setOnClickListener(v -> confirmLogout());
+    }
+
+    private void confirmLogout() {
+        new AlertDialog.Builder(this)
+                .setTitle("Log Out")
+                .setMessage("Are you sure you want to log out and switch your active role?")
+                .setPositiveButton("Log Out", (dialog, which) -> performLogout())
+                .setNegativeButton("Cancel", null)
+                .show();
+    }
+
+    private void performLogout() {
+        sessionManager.logout();
+        Toast.makeText(this, "Logged Out Successfully", Toast.LENGTH_SHORT).show();
+
+        Intent intent = new Intent(ProfileActivity.this, RoleSelectionActivity.class);
+        intent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+        startActivity(intent);
+        finish();
     }
 
     private void setupSpinner() {

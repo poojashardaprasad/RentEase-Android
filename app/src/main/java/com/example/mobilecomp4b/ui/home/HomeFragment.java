@@ -48,7 +48,17 @@ public class HomeFragment extends Fragment implements PropertyAdapter.OnProperty
             }
         });
 
+        viewModel.getFavoriteIds().observe(getViewLifecycleOwner(), favoriteIds -> {
+            adapter.setFavoriteIds(favoriteIds);
+        });
+
         binding.btnFindRental.setOnClickListener(v -> {
+            if (getActivity() instanceof MainActivity) {
+                ((MainActivity) getActivity()).navigateToBrowse("Both");
+            }
+        });
+
+        binding.cardMapExplorer.setOnClickListener(v -> {
             if (getActivity() instanceof MainActivity) {
                 ((MainActivity) getActivity()).navigateToBrowse("Both");
             }

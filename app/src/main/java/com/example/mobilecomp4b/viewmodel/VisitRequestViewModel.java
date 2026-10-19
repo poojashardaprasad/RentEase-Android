@@ -35,4 +35,8 @@ public class VisitRequestViewModel extends AndroidViewModel {
     public void cancelVisitRequest(int requestId) {
         visitRepository.cancelVisitRequest(requestId);
     }
+
+    public void acceptVisitRequest(int requestId) {
+        visitRepository.acceptVisitRequest(requestId);
+    }
 }

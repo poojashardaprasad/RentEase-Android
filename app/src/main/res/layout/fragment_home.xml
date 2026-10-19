@@ -76,6 +76,67 @@
             </LinearLayout>
         </com.google.android.material.card.MaterialCardView>
 
+        <!-- Map Explorer Quick Banner -->
+        <com.google.android.material.card.MaterialCardView
+            android:id="@+id/cardMapExplorer"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="24dp"
+            android:clickable="true"
+            android:focusable="true"
+            app:cardBackgroundColor="@color/secondary_container"
+            app:cardCornerRadius="14dp"
+            app:cardElevation="1dp"
+            app:strokeWidth="0dp">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:padding="16dp">
+
+                <ImageView
+                    android:layout_width="36dp"
+                    android:layout_height="36dp"
+                    android:src="@drawable/ic_location"
+                    app:tint="@color/primary_forest"
+                    android:contentDescription="@string/app_name" />
+
+                <LinearLayout
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="12dp"
+                    android:layout_weight="1"
+                    android:orientation="vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:fontFamily="serif"
+                        android:text="Explore Properties on Map"
+                        android:textColor="@color/primary_forest"
+                        android:textSize="15sp"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="2dp"
+                        android:text="Find rental homes by location &amp; markers"
+                        android:textColor="@color/on_secondary_container"
+                        android:textSize="12sp" />
+                </LinearLayout>
+
+                <ImageView
+                    android:layout_width="24dp"
+                    android:layout_height="24dp"
+                    android:src="@drawable/ic_arrow_forward"
+                    app:tint="@color/primary_forest"
+                    android:contentDescription="@string/app_name" />
+            </LinearLayout>
+        </com.google.android.material.card.MaterialCardView>
+
         <!-- Category Quick Selection -->
         <TextView
             android:layout_width="match_parent"

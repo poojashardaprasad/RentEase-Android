@@ -1,6 +1,7 @@
 package com.example.mobilecomp4b.data.local.entity;
 
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 @Entity(tableName = "properties")
@@ -21,11 +22,13 @@ public class PropertyEntity {
     private String amenities;
     private String imageName;
     private boolean isAvailable;
+    private double latitude;
+    private double longitude;
 
     public PropertyEntity(int id, String title, String description, String locality, String city,
                           long monthlyRent, long deposit, String propertyType, int bedrooms,
                           String tenantType, String furnishing, String amenities, String imageName,
-                          boolean isAvailable) {
+                          boolean isAvailable, double latitude, double longitude) {
         this.id = id;
         this.title = title;
         this.description = description;
@@ -40,6 +43,17 @@ public class PropertyEntity {
         this.amenities = amenities;
         this.imageName = imageName;
         this.isAvailable = isAvailable;
+        this.latitude = latitude;
+        this.longitude = longitude;
+    }
+
+    @Ignore
+    public PropertyEntity(int id, String title, String description, String locality, String city,
+                          long monthlyRent, long deposit, String propertyType, int bedrooms,
+                          String tenantType, String furnishing, String amenities, String imageName,
+                          boolean isAvailable) {
+        this(id, title, description, locality, city, monthlyRent, deposit, propertyType, bedrooms,
+             tenantType, furnishing, amenities, imageName, isAvailable, 0.0, 0.0);
     }
 
     public int getId() { return id; }
@@ -83,4 +97,10 @@ public class PropertyEntity {
 
     public boolean isAvailable() { return isAvailable; }
     public void setAvailable(boolean available) { isAvailable = available; }
+
+    public double getLatitude() { return latitude; }
+    public void setLatitude(double latitude) { this.latitude = latitude; }
+
+    public double getLongitude() { return longitude; }
+    public void setLongitude(double longitude) { this.longitude = longitude; }
 }

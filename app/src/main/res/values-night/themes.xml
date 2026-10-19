@@ -16,4 +16,18 @@
         <item name="android:statusBarColor">@color/cream_background</item>
         <item name="android:windowLightStatusBar">true</item>
     </style>
+
+    <!-- Splash Screen Theme -->
+    <style name="Theme.App.Starting" parent="Theme.SplashScreen">
+        <item name="windowSplashScreenBackground">@color/primary_forest</item>
+        <item name="windowSplashScreenAnimatedIcon">@drawable/ic_rentease_logo</item>
+        <item name="postSplashScreenTheme">@style/Theme.MobileComp4b</item>
+    </style>
+
+    <style name="Theme.MobileComp4b.Splash" parent="Theme.Material3.DayNight.NoActionBar">
+        <item name="android:windowBackground">@drawable/bg_splash_gradient</item>
+        <item name="android:statusBarColor">#073827</item>
+        <item name="android:navigationBarColor">#05281C</item>
+        <item name="android:windowLightStatusBar">false</item>
+    </style>
 </resources>

@@ -25,7 +25,7 @@ import com.example.mobilecomp4b.data.local.entity.VisitRequestEntity;
         InquiryEntity.class,
         UserProfileEntity.class
     },
-    version = 1,
+    version = 2,
     exportSchema = false
 )
 public abstract class RentEaseDatabase extends RoomDatabase {
@@ -46,7 +46,9 @@ public abstract class RentEaseDatabase extends RoomDatabase {
                             context.getApplicationContext(),
                             RentEaseDatabase.class,
                             "RentEaseDatabase"
-                    ).build();
+                    )
+                    .fallbackToDestructiveMigration()
+                    .build();
                 }
             }
         }

@@ -1,9 +1,8 @@
 package com.example.mobilecomp4b.ui.adapter;
 
 import android.content.Context;
-import android.content.res.Resources;
+import android.content.res.ColorStateList;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -15,6 +14,11 @@ import com.example.mobilecomp4b.R;
 import com.example.mobilecomp4b.data.local.entity.PropertyEntity;
 import com.example.mobilecomp4b.databinding.ItemPropertyCardBinding;
 import com.example.mobilecomp4b.utils.CurrencyFormatter;
+import com.example.mobilecomp4b.utils.ImageLoaderHelper;
+
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter.PropertyViewHolder> {
 
@@ -24,10 +28,19 @@ public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter
     }
 
     private final OnPropertyClickListener listener;
+    private final Set<Integer> favoriteIds = new HashSet<>();
 
     public PropertyAdapter(OnPropertyClickListener listener) {
         super(DIFF_CALLBACK);
         this.listener = listener;
+    }
+
+    public void setFavoriteIds(List<Integer> ids) {
+        favoriteIds.clear();
+        if (ids != null) {
+            favoriteIds.addAll(ids);
+        }
+        notifyDataSetChanged();
     }
 
     private static final DiffUtil.ItemCallback<PropertyEntity> DIFF_CALLBACK =
@@ -57,7 +70,7 @@ public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter
 
     @Override
     public void onBindViewHolder(@NonNull PropertyViewHolder holder, int position) {
-        holder.bind(getItem(position), listener);
+        holder.bind(getItem(position), listener, favoriteIds.contains(getItem(position).getId()));
     }
 
     public static class PropertyViewHolder extends RecyclerView.ViewHolder {
@@ -69,7 +82,9 @@ public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter
             this.binding = binding;
         }
 
-        public void bind(PropertyEntity property, OnPropertyClickListener listener) {
+        public void bind(PropertyEntity property, OnPropertyClickListener listener, boolean isFavorite) {
+            Context context = binding.getRoot().getContext();
+
             binding.tvPropertyTitle.setText(property.getTitle());
             binding.tvPropertyRent.setText(CurrencyFormatter.formatRent(property.getMonthlyRent()));
             binding.tvPropertyDescription.setText(property.getDescription());
@@ -77,12 +92,15 @@ public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter
             binding.tvPropertyBedrooms.setText(property.getBedrooms() + " BHK");
             binding.tvTenantBadge.setText(property.getTenantType());
 
-            Context context = binding.getRoot().getContext();
-            int imageResId = getDrawableResId(context, property.getImageName());
-            if (imageResId != 0) {
-                binding.ivPropertyImage.setImageResource(imageResId);
+            ImageLoaderHelper.loadPropertyImage(binding.ivPropertyImage, property.getImageName());
+
+            // Update filled/empty heart icon based on favorite status
+            if (isFavorite) {
+                binding.btnFavorite.setImageResource(R.drawable.ic_favorite);
+                binding.btnFavorite.setImageTintList(ColorStateList.valueOf(context.getColor(R.color.error_red)));
             } else {
-                binding.ivPropertyImage.setImageResource(R.drawable.img_default_property);
+                binding.btnFavorite.setImageResource(R.drawable.ic_favorite_border);
+                binding.btnFavorite.setImageTintList(ColorStateList.valueOf(context.getColor(R.color.primary_forest)));
             }
 
             binding.getRoot().setOnClickListener(v -> {
@@ -92,16 +110,6 @@ public class PropertyAdapter extends ListAdapter<PropertyEntity, PropertyAdapter
             binding.btnFavorite.setOnClickListener(v -> {
                 if (listener != null) listener.onFavoriteToggle(property);
             });
-        }
-
-        private int getDrawableResId(Context context, String name) {
-            if (name == null || name.isEmpty()) return 0;
-            try {
-                Resources resources = context.getResources();
-                return resources.getIdentifier(name, "drawable", context.getPackageName());
-            } catch (Exception e) {
-                return 0;
-            }
         }
     }
 }

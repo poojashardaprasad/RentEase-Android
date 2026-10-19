@@ -45,4 +45,8 @@ public class FavoritesRepository {
     public LiveData<Integer> getFavoriteCount() {
         return favoriteDao.getFavoriteCount();
     }
+
+    public LiveData<List<Integer>> getAllFavoriteIds() {
+        return favoriteDao.getAllFavoriteIds();
+    }
 }

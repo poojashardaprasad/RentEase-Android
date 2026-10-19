@@ -33,6 +33,10 @@ public class HomeViewModel extends AndroidViewModel {
         return propertyRepository.getAllProperties();
     }
 
+    public LiveData<List<Integer>> getFavoriteIds() {
+        return favoritesRepository.getAllFavoriteIds();
+    }
+
     public void toggleFavorite(int propertyId) {
         favoritesRepository.toggleFavorite(propertyId);
     }

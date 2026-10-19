@@ -42,6 +42,10 @@ public class VisitRepository {
         executors.diskIO().execute(() -> visitRequestDao.cancelVisitRequest(requestId));
     }
 
+    public void acceptVisitRequest(int requestId) {
+        executors.diskIO().execute(() -> visitRequestDao.acceptVisitRequest(requestId));
+    }
+
     public LiveData<Integer> getPendingRequestsCount() {
         return visitRequestDao.getPendingRequestsCount();
     }

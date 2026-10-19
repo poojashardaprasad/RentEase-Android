@@ -68,13 +68,7 @@ public class InquiryAdapter extends ListAdapter<InquiryWithProperty, InquiryAdap
             if (item.property != null) {
                 binding.tvInquiryPropertyTitle.setText(item.property.getTitle());
 
-                Context context = binding.getRoot().getContext();
-                int resId = getDrawableResId(context, item.property.getImageName());
-                if (resId != 0) {
-                    binding.ivInquiryPropertyImage.setImageResource(resId);
-                } else {
-                    binding.ivInquiryPropertyImage.setImageResource(R.drawable.img_default_property);
-                }
+                com.example.mobilecomp4b.utils.ImageLoaderHelper.loadPropertyImage(binding.ivInquiryPropertyImage, item.property.getImageName());
             }
 
             binding.tvInquiryDate.setText("Sent: " + DateUtils.formatTimestamp(item.inquiry.getCreatedAt()));

@@ -7,7 +7,6 @@ import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 
 import androidx.annotation.NonNull;
@@ -21,15 +20,30 @@ import com.example.mobilecomp4b.data.local.entity.PropertyEntity;
 import com.example.mobilecomp4b.databinding.FragmentBrowseBinding;
 import com.example.mobilecomp4b.ui.adapter.PropertyAdapter;
 import com.example.mobilecomp4b.ui.details.PropertyDetailsActivity;
+import com.example.mobilecomp4b.utils.CurrencyFormatter;
 import com.example.mobilecomp4b.viewmodel.BrowseViewModel;
+import com.google.android.gms.maps.CameraUpdateFactory;
+import com.google.android.gms.maps.GoogleMap;
+import com.google.android.gms.maps.OnMapReadyCallback;
+import com.google.android.gms.maps.SupportMapFragment;
+import com.google.android.gms.maps.model.BitmapDescriptorFactory;
+import com.google.android.gms.maps.model.LatLng;
+import com.google.android.gms.maps.model.LatLngBounds;
+import com.google.android.gms.maps.model.Marker;
+import com.google.android.gms.maps.model.MarkerOptions;
 
-public class BrowseFragment extends Fragment implements PropertyAdapter.OnPropertyClickListener {
+import java.util.List;
+
+public class BrowseFragment extends Fragment implements PropertyAdapter.OnPropertyClickListener, OnMapReadyCallback {
 
     private static final String ARG_TENANT_CATEGORY = "arg_tenant_category";
 
     private FragmentBrowseBinding binding;
     private BrowseViewModel viewModel;
     private PropertyAdapter adapter;
+    private GoogleMap googleMap;
+    private List<PropertyEntity> currentProperties;
+    private boolean isMapViewActive = false;
 
     public static BrowseFragment newInstance(String tenantCategory) {
         BrowseFragment fragment = new BrowseFragment();
@@ -55,6 +69,7 @@ public class BrowseFragment extends Fragment implements PropertyAdapter.OnProper
         setupSpinners();
         setupRecyclerView();
         setupSearchAndFilters();
+        setupMapFragment();
 
         if (getArguments() != null) {
             String initialTenant = getArguments().getString(ARG_TENANT_CATEGORY, "Both");
@@ -71,15 +86,115 @@ public class BrowseFragment extends Fragment implements PropertyAdapter.OnProper
         }
 
         viewModel.getFilteredProperties().observe(getViewLifecycleOwner(), properties -> {
+            this.currentProperties = properties;
             if (properties == null || properties.isEmpty()) {
-                binding.rvBrowseProperties.setVisibility(View.GONE);
-                binding.layoutEmptyState.setVisibility(View.VISIBLE);
+                if (!isMapViewActive) {
+                    binding.rvBrowseProperties.setVisibility(View.GONE);
+                    binding.layoutBrowseMap.setVisibility(View.GONE);
+                    binding.layoutEmptyState.setVisibility(View.VISIBLE);
+                } else {
+                    binding.layoutEmptyState.setVisibility(View.GONE);
+                }
             } else {
-                binding.rvBrowseProperties.setVisibility(View.VISIBLE);
                 binding.layoutEmptyState.setVisibility(View.GONE);
+                if (isMapViewActive) {
+                    binding.rvBrowseProperties.setVisibility(View.GONE);
+                    binding.layoutBrowseMap.setVisibility(View.VISIBLE);
+                } else {
+                    binding.rvBrowseProperties.setVisibility(View.VISIBLE);
+                    binding.layoutBrowseMap.setVisibility(View.GONE);
+                }
                 adapter.submitList(properties);
             }
+            updateMapMarkers();
         });
+
+        viewModel.getFavoriteIds().observe(getViewLifecycleOwner(), favoriteIds -> {
+            adapter.setFavoriteIds(favoriteIds);
+        });
+    }
+
+    private void setupMapFragment() {
+        SupportMapFragment mapFragment = (SupportMapFragment) getChildFragmentManager()
+                .findFragmentById(R.id.mapFragmentBrowse);
+        if (mapFragment != null) {
+            mapFragment.getMapAsync(this);
+        }
+
+        binding.btnMapViewToggle.setOnClickListener(v -> toggleMapView());
+    }
+
+    private void toggleMapView() {
+        isMapViewActive = !isMapViewActive;
+        if (isMapViewActive) {
+            binding.rvBrowseProperties.setVisibility(View.GONE);
+            binding.layoutBrowseMap.setVisibility(View.VISIBLE);
+            binding.btnMapViewToggle.setImageResource(R.drawable.ic_menu);
+            updateMapMarkers();
+        } else {
+            binding.layoutBrowseMap.setVisibility(View.GONE);
+            binding.rvBrowseProperties.setVisibility(
+                    currentProperties != null && !currentProperties.isEmpty() ? View.VISIBLE : View.GONE
+            );
+            binding.btnMapViewToggle.setImageResource(R.drawable.ic_location);
+        }
+    }
+
+    @Override
+    public void onMapReady(@NonNull GoogleMap map) {
+        this.googleMap = map;
+        this.googleMap.getUiSettings().setZoomControlsEnabled(true);
+        this.googleMap.getUiSettings().setCompassEnabled(true);
+
+        this.googleMap.setOnInfoWindowClickListener(marker -> {
+            Object tag = marker.getTag();
+            if (tag instanceof Integer) {
+                int propertyId = (Integer) tag;
+                Intent intent = new Intent(requireContext(), PropertyDetailsActivity.class);
+                intent.putExtra(PropertyDetailsActivity.EXTRA_PROPERTY_ID, propertyId);
+                startActivity(intent);
+            }
+        });
+
+        updateMapMarkers();
+    }
+
+    private void updateMapMarkers() {
+        if (googleMap == null || currentProperties == null || currentProperties.isEmpty()) return;
+
+        googleMap.clear();
+        LatLngBounds.Builder builder = new LatLngBounds.Builder();
+        int validMarkerCount = 0;
+
+        for (PropertyEntity property : currentProperties) {
+            double lat = property.getLatitude();
+            double lng = property.getLongitude();
+            if (lat != 0.0 || lng != 0.0) {
+                LatLng position = new LatLng(lat, lng);
+                Marker marker = googleMap.addMarker(new MarkerOptions()
+                        .position(position)
+                        .title(property.getTitle())
+                        .snippet(CurrencyFormatter.formatRent(property.getMonthlyRent()) + " • " + property.getLocality() + ", " + property.getCity())
+                        .icon(BitmapDescriptorFactory.defaultMarker(BitmapDescriptorFactory.HUE_GREEN))
+                );
+                if (marker != null) {
+                    marker.setTag(property.getId());
+                }
+                builder.include(position);
+                validMarkerCount++;
+            }
+        }
+
+        if (validMarkerCount > 0) {
+            try {
+                LatLngBounds bounds = builder.build();
+                if (validMarkerCount == 1) {
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngZoom(bounds.getCenter(), 14f));
+                } else {
+                    googleMap.moveCamera(CameraUpdateFactory.newLatLngBounds(bounds, 120));
+                }
+            } catch (Exception ignored) {}
+        }
     }
 
     private void setupRecyclerView() {

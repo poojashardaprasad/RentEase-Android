@@ -39,7 +39,7 @@ public class DatabaseSeeder {
             25000, 50000,
             "Flat", 2, "Families", "Semi-furnished",
             "WiFi, Parking, Elevator, Security, Power Backup",
-            "img_property_1", true
+            "img_property_1", true, 19.1363, 72.8277
         ));
 
         list.add(new PropertyEntity(
@@ -50,7 +50,7 @@ public class DatabaseSeeder {
             8500, 15000,
             "Studio", 1, "Students", "Furnished",
             "WiFi, Study Desk, AC, Laundry, CCTV",
-            "img_property_2", true
+            "img_property_2", true, 19.1176, 72.9060
         ));
 
         list.add(new PropertyEntity(
@@ -61,7 +61,7 @@ public class DatabaseSeeder {
             15000, 30000,
             "Flat", 1, "Both", "Semi-furnished",
             "Modular Kitchen, Balcony, Elevator, Intercom",
-            "img_property_3", true
+            "img_property_3", true, 19.0596, 72.8295
         ));
 
         list.add(new PropertyEntity(
@@ -72,7 +72,7 @@ public class DatabaseSeeder {
             6500, 10000,
             "Shared Room", 1, "Students", "Furnished",
             "WiFi, Food Provided, Housekeeping, Water Purifier",
-            "img_property_4", true
+            "img_property_4", true, 12.9352, 77.6245
         ));
 
         list.add(new PropertyEntity(
@@ -83,7 +83,7 @@ public class DatabaseSeeder {
             45000, 100000,
             "Independent House", 3, "Families", "Furnished",
             "Garden, Garage, Power Backup, Solar Water, Pet Friendly",
-            "img_property_5", true
+            "img_property_5", true, 12.9784, 77.6408
         ));
 
         list.add(new PropertyEntity(
@@ -94,7 +94,7 @@ public class DatabaseSeeder {
             12000, 20000,
             "Private Room", 1, "Students", "Furnished",
             "AC, Smart TV, Gym Access, WiFi, Biometric Entry",
-            "img_property_6", true
+            "img_property_6", true, 12.9121, 77.6446
         ));
 
         list.add(new PropertyEntity(
@@ -105,7 +105,7 @@ public class DatabaseSeeder {
             11000, 25000,
             "Flat", 1, "Both", "Unfurnished",
             "24/7 Water, Parking, Security Guard",
-            "img_property_7", true
+            "img_property_7", true, 12.9698, 77.7499
         ));
 
         list.add(new PropertyEntity(
@@ -116,7 +116,7 @@ public class DatabaseSeeder {
             32000, 64000,
             "Flat", 2, "Families", "Furnished",
             "Swimming Pool, Clubhouse, Gym, Security, Covered Parking",
-            "img_property_8", true
+            "img_property_8", true, 28.4950, 77.0895
         ));
 
         list.add(new PropertyEntity(
@@ -127,7 +127,7 @@ public class DatabaseSeeder {
             7500, 10000,
             "PG", 1, "Students", "Furnished",
             "WiFi, Meals, RO Water, Power Backup",
-            "img_property_1", true
+            "img_property_1", true, 28.6903, 77.2104
         ));
 
         list.add(new PropertyEntity(
@@ -138,7 +138,7 @@ public class DatabaseSeeder {
             13500, 25000,
             "Studio", 1, "Both", "Furnished",
             "AC, Modular Kitchen, Balcony, Elevator",
-            "img_property_2", true
+            "img_property_2", true, 18.5912, 73.7389
         ));
 
         list.add(new PropertyEntity(
@@ -149,7 +149,7 @@ public class DatabaseSeeder {
             28000, 60000,
             "Flat", 3, "Families", "Semi-furnished",
             "3 Bathrooms, Covered Parking, Security, Water Tank",
-            "img_property_3", true
+            "img_property_3", true, 18.5074, 73.8077
         ));
 
         list.add(new PropertyEntity(
@@ -160,7 +160,7 @@ public class DatabaseSeeder {
             5000, 8000,
             "Shared Room", 1, "Students", "Furnished",
             "WiFi, Hot Water, Daily Cleaning",
-            "img_property_4", true
+            "img_property_4", true, 18.5679, 73.9143
         ));
 
         list.add(new PropertyEntity(
@@ -171,7 +171,7 @@ public class DatabaseSeeder {
             18000, 36000,
             "Independent House", 2, "Families", "Semi-furnished",
             "Private Terrace, Garden, Car Parking",
-            "img_property_5", true
+            "img_property_5", true, 22.5867, 88.4171
         ));
 
         list.add(new PropertyEntity(
@@ -182,7 +182,7 @@ public class DatabaseSeeder {
             9000, 15000,
             "PG", 1, "Students", "Furnished",
             "24/7 Security, Biometric Lock, Food, WiFi, Washing Machine",
-            "img_property_6", true
+            "img_property_6", true, 17.4156, 78.4347
         ));
 
         list.add(new PropertyEntity(
@@ -193,7 +193,7 @@ public class DatabaseSeeder {
             26000, 50000,
             "Flat", 2, "Both", "Furnished",
             "Gym, Lift, Power Backup, Swimming Pool",
-            "img_property_7", true
+            "img_property_7", true, 17.4401, 78.3489
         ));
 
         list.add(new PropertyEntity(
@@ -204,7 +204,7 @@ public class DatabaseSeeder {
             14000, 28000,
             "Studio", 1, "Both", "Semi-furnished",
             "Metro Connectivity, Modular Kitchen, 24/7 Water",
-            "img_property_8", true
+            "img_property_8", true, 13.0031, 77.5643
         ));
 
         list.add(new PropertyEntity(
@@ -215,7 +215,7 @@ public class DatabaseSeeder {
             16000, 30000,
             "Private Room", 1, "Students", "Furnished",
             "Mini Fridge, Workstation, High Speed Internet, Cafeteria",
-            "img_property_1", true
+            "img_property_1", true, 17.4319, 78.4073
         ));
 
         list.add(new PropertyEntity(
@@ -226,7 +226,7 @@ public class DatabaseSeeder {
             65000, 150000,
             "Independent House", 4, "Families", "Furnished",
             "Private Pool, Lawn, Smart Home, Double Garage, Security",
-            "img_property_2", true
+            "img_property_2", true, 12.8794, 80.2452
         ));
 
         list.add(new PropertyEntity(
@@ -237,7 +237,7 @@ public class DatabaseSeeder {
             6000, 10000,
             "Shared Room", 1, "Students", "Furnished",
             "WiFi, Kitchen Access, Refrigerator, Washing Machine",
-            "img_property_3", true
+            "img_property_3", true, 13.0012, 80.2565
         ));
 
         list.add(new PropertyEntity(
@@ -248,7 +248,7 @@ public class DatabaseSeeder {
             19000, 40000,
             "Flat", 2, "Families", "Semi-furnished",
             "Car Parking, Security, Lift, Water Filter",
-            "img_property_4", true
+            "img_property_4", true, 12.9759, 80.2212
         ));
 
         list.add(new PropertyEntity(
@@ -259,7 +259,7 @@ public class DatabaseSeeder {
             7000, 10000,
             "PG", 1, "Students", "Furnished",
             "Meals, WiFi, RO Water, Cleaning",
-            "img_property_5", true
+            "img_property_5", true, 28.6280, 77.3649
         ));
 
         list.add(new PropertyEntity(
@@ -270,7 +270,7 @@ public class DatabaseSeeder {
             17500, 35000,
             "Flat", 1, "Both", "Furnished",
             "Wooden Flooring, Modular Kitchen, AC, Security",
-            "img_property_6", true
+            "img_property_6", true, 19.0860, 72.9080
         ));
 
         list.add(new PropertyEntity(
@@ -281,7 +281,7 @@ public class DatabaseSeeder {
             21000, 42000,
             "Independent House", 2, "Families", "Unfurnished",
             "Separate Entrance, Balcony, Terrace Access, Parking",
-            "img_property_7", true
+            "img_property_7", true, 28.5921, 77.0460
         ));
 
         list.add(new PropertyEntity(
@@ -292,7 +292,7 @@ public class DatabaseSeeder {
             9500, 15000,
             "Studio", 1, "Students", "Furnished",
             "Kitchenette, Microwave, Study Table, WiFi, Laundry Service",
-            "img_property_8", true
+            "img_property_8", true, 13.3525, 74.7928
         ));
 
         list.add(new PropertyEntity(
@@ -303,7 +303,7 @@ public class DatabaseSeeder {
             38000, 80000,
             "Flat", 3, "Families", "Furnished",
             "Panoramic Views, Gym, Swimming Pool, High Speed Elevators, Tennis Court",
-            "img_property_1", true
+            "img_property_1", true, 19.2183, 72.9781
         ));
 
         return list;

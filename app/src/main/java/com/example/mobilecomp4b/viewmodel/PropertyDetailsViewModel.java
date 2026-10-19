@@ -50,4 +50,17 @@ public class PropertyDetailsViewModel extends AndroidViewModel {
             favoritesRepository.toggleFavorite(id);
         }
     }
+
+    public void deleteProperty(Runnable onComplete) {
+        Integer id = propertyIdLiveData.getValue();
+        if (id != null) {
+            RentEaseApplication app = getApplication();
+            app.getExecutors().diskIO().execute(() -> {
+                propertyRepository.deleteProperty(id);
+                if (onComplete != null) {
+                    app.getExecutors().mainThread().execute(onComplete);
+                }
+            });
+        }
+    }
 }

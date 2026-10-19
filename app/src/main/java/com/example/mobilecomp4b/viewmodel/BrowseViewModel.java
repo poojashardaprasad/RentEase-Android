@@ -99,6 +99,10 @@ public class BrowseViewModel extends AndroidViewModel {
         filterStateLiveData.setValue(fresh);
     }
 
+    public LiveData<List<Integer>> getFavoriteIds() {
+        return favoritesRepository.getAllFavoriteIds();
+    }
+
     public void toggleFavorite(int propertyId) {
         favoritesRepository.toggleFavorite(propertyId);
     }

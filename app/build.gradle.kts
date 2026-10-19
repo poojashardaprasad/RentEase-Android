@@ -39,6 +39,8 @@ dependencies {
     implementation(libs.material)
     implementation(libs.constraintlayout)
     implementation(libs.activity)
+    implementation(libs.splashscreen)
+    implementation(libs.maps)
 
     // Room
     implementation(libs.room.runtime)

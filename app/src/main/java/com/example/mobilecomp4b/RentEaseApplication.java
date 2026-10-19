@@ -10,6 +10,7 @@ import com.example.mobilecomp4b.data.repository.PropertyRepository;
 import com.example.mobilecomp4b.data.repository.VisitRepository;
 import com.example.mobilecomp4b.data.seed.DatabaseSeeder;
 import com.example.mobilecomp4b.utils.AppExecutors;
+import com.google.android.gms.maps.MapsInitializer;
 
 public class RentEaseApplication extends Application {
 
@@ -32,6 +33,11 @@ public class RentEaseApplication extends Application {
         visitRepository = new VisitRepository(database.visitRequestDao(), executors);
         inquiryRepository = new InquiryRepository(database.inquiryDao(), executors);
         profileRepository = new ProfileRepository(database.userProfileDao(), executors);
+
+        // Initialize Google Maps SDK Latest Renderer
+        try {
+            MapsInitializer.initialize(getApplicationContext(), MapsInitializer.Renderer.LATEST, null);
+        } catch (Exception ignored) {}
 
         // Seed initial data on background thread
         executors.diskIO().execute(() ->

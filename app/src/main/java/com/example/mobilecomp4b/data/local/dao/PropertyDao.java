@@ -34,6 +34,9 @@ public interface PropertyDao {
     @Insert(onConflict = OnConflictStrategy.REPLACE)
     long insertProperty(PropertyEntity property);
 
+    @Query("DELETE FROM properties WHERE id = :id")
+    void deletePropertyById(int id);
+
     @Query("SELECT * FROM properties WHERE " +
             "(:query IS NULL OR :query = '' OR title LIKE '%' || :query || '%' OR locality LIKE '%' || :query || '%' OR city LIKE '%' || :query || '%') AND " +
             "(:tenantType = 'Both' OR tenantType = :tenantType OR tenantType = 'Both') AND " +

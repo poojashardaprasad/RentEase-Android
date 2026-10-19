@@ -27,6 +27,10 @@ public class PropertyRepository {
         return propertyDao.getPropertyById(id);
     }
 
+    public void deleteProperty(int id) {
+        propertyDao.deletePropertyById(id);
+    }
+
     public LiveData<List<PropertyEntity>> filterProperties(
             String query,
             String tenantType,

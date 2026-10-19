@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <string name="app_name">RentEase</string>
+    <string name="splash_footer">RENT EASE • HOMES &amp; RENTALS</string>
     <string name="title_home">Home</string>
     <string name="title_browse">Browse</string>
     <string name="title_saved">Saved</string>

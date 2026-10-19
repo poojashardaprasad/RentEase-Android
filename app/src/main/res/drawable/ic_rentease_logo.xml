@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<vector xmlns:android="http://schemas.android.com/apk/res/android"
+    android:width="120dp"
+    android:height="120dp"
+    android:viewportWidth="120"
+    android:viewportHeight="120">
+
+    <!-- Outer Circular Shield/Badge -->
+    <path
+        android:fillColor="#073827"
+        android:pathData="M60,6m54,54a54,54 0 1,1 -108,0a54,54 0 1,1 108,0z" />
+
+    <!-- Subtle Golden Ring Accent -->
+    <path
+        android:strokeColor="#D3B26A"
+        android:strokeWidth="2"
+        android:fillColor="#00000000"
+        android:pathData="M60,11m49,0a49,49 0 1,1 -98,0a49,49 0 1,1 98,0z" />
+
+    <!-- Roof Peak (Main House Structure) -->
+    <path
+        android:fillColor="#F7F3E8"
+        android:pathData="M60,28 L28,55 L35,55 L35,88 L85,88 L85,55 L92,55 Z" />
+
+    <!-- Overhanging Roof Line (Sage Green / Dark Green contrast) -->
+    <path
+        android:fillColor="#CDE7C3"
+        android:pathData="M60,24 L24,54 L29,58 L60,32 L91,58 L96,54 Z" />
+
+    <!-- Chimney -->
+    <path
+        android:fillColor="#D3B26A"
+        android:pathData="M73,34 L73,26 L81,26 L81,41 Z" />
+
+    <!-- Arched Doorway (Forest Green) -->
+    <path
+        android:fillColor="#073827"
+        android:pathData="M51,88 L51,66 C51,61 69,61 69,66 L69,88 Z" />
+
+    <!-- Door Handle (Gold) -->
+    <path
+        android:fillColor="#D3B26A"
+        android:pathData="M64,76 m-2,0 a2,2 0 1,0 4,0 a2,2 0 1,0 -4,0" />
+
+    <!-- Window Pane Left (Sage Green) -->
+    <path
+        android:fillColor="#CDE7C3"
+        android:pathData="M40,62 h8 v10 h-8 z" />
+
+    <!-- Window Pane Right (Sage Green) -->
+    <path
+        android:fillColor="#CDE7C3"
+        android:pathData="M72,62 h8 v10 h-8 z" />
+
+    <!-- Keyhole / Star Accent above Door (Gold) -->
+    <path
+        android:fillColor="#D3B26A"
+        android:pathData="M60,48 L62,52 L66,52 L63,55 L64,59 L60,56 L56,59 L57,55 L54,52 L58,52 Z" />
+
+</vector>

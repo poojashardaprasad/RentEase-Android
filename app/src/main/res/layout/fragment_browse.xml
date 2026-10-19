@@ -45,6 +45,16 @@
                 android:contentDescription="@string/label_sort_by"
                 android:src="@drawable/ic_filter"
                 app:tint="@color/cream_background" />
+
+            <ImageButton
+                android:id="@+id/btnMapViewToggle"
+                android:layout_width="48dp"
+                android:layout_height="48dp"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/bg_button_primary"
+                android:contentDescription="Toggle Map View"
+                android:src="@drawable/ic_location"
+                app:tint="@color/cream_background" />
         </LinearLayout>
 
         <!-- Quick Tenant Type Filters -->
@@ -177,7 +187,7 @@
         </LinearLayout>
     </LinearLayout>
 
-    <!-- Property List or Empty State -->
+    <!-- Property List, Map View or Empty State -->
     <FrameLayout
         android:layout_width="match_parent"
         android:layout_height="0dp"
@@ -189,6 +199,19 @@
             android:layout_height="match_parent"
             android:paddingHorizontal="8dp"
             tools:listitem="@layout/item_property_card" />
+
+        <FrameLayout
+            android:id="@+id/layoutBrowseMap"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:visibility="gone">
+
+            <androidx.fragment.app.FragmentContainerView
+                android:id="@+id/mapFragmentBrowse"
+                android:name="com.google.android.gms.maps.SupportMapFragment"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent" />
+        </FrameLayout>
 
         <LinearLayout
             android:id="@+id/layoutEmptyState"

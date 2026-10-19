@@ -25,6 +25,9 @@ public interface VisitRequestDao {
     @Query("UPDATE visit_requests SET status = 'Cancelled' WHERE id = :requestId")
     void cancelVisitRequest(int requestId);
 
+    @Query("UPDATE visit_requests SET status = 'Accepted' WHERE id = :requestId")
+    void acceptVisitRequest(int requestId);
+
     @Query("SELECT COUNT(*) FROM visit_requests WHERE status = 'Pending'")
     LiveData<Integer> getPendingRequestsCount();
 }
